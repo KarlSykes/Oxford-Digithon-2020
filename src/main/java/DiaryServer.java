@@ -3,9 +3,7 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.text.SimpleDateFormat;
 
@@ -22,33 +20,33 @@ public class DiaryServer extends WebSocketServer {
         connection.start();
         System.out.println("Server Waiting for Connection");
 
-        File jsonEntry = new File("Entries/" + "25_05_1999.json");
-        Entry entry = new Entry();
-        if(jsonEntry.exists() && !jsonEntry.isDirectory()){
-            System.out.println("found file!");
-            try {
-                JsonStreamParser parser = new JsonStreamParser(new FileReader(jsonEntry));
-                JsonObject oldEntry = parser.next().getAsJsonObject();
-                System.out.println(new Gson().toJson(oldEntry));
-
-                JsonArray tags = oldEntry.get("tags").getAsJsonArray();
-                JsonArray activities = oldEntry.get("activities").getAsJsonArray();
-
-//                for(JsonElement tag: tags) {
-//                    System.out.println("Tag: " + tag.getAsString());
-//                    entry.tags.add(tag.getAsString());
-//                }
+//        File jsonEntry = new File("Entries/" + "25_05_1999.json");
+//        Entry entry = new Entry();
+//        if(jsonEntry.exists() && !jsonEntry.isDirectory()){
+//            System.out.println("found file!");
+//            try {
+//                JsonStreamParser parser = new JsonStreamParser(new FileReader(jsonEntry));
+//                JsonObject oldEntry = parser.next().getAsJsonObject();
+//                System.out.println(new Gson().toJson(oldEntry));
 //
-//                for(JsonElement activity: activities) {
-//                    System.out.println("Activitiy: "+ activity.getAsString());
-//                    entry.activities.add(activity.getAsString());
-//                }
-
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
+//                JsonArray tags = oldEntry.get("tags").getAsJsonArray();
+//                JsonArray activities = oldEntry.get("activities").getAsJsonArray();
+//
+////                for(JsonElement tag: tags) {
+////                    System.out.println("Tag: " + tag.getAsString());
+////                    entry.tags.add(tag.getAsString());
+////                }
+////
+////                for(JsonElement activity: activities) {
+////                    System.out.println("Activitiy: "+ activity.getAsString());
+////                    entry.activities.add(activity.getAsString());
+////                }
+//
+//
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
 
 
@@ -86,6 +84,9 @@ public class DiaryServer extends WebSocketServer {
 
                     tags = oldEntry.get("tags").getAsJsonArray();
                     activities = oldEntry.get("activities").getAsJsonArray();
+
+
+
             }
 
             switch(type) {
@@ -95,10 +96,23 @@ public class DiaryServer extends WebSocketServer {
                     break;
                 case "storeActivities":
                     JsonArray newActivities = msg.get("activities").getAsJsonArray();
-                    activities.add(activities);
+                    activities.add(newActivities);
                     break;
             }
-        } catch (FileNotFoundException e) {
+
+
+            JsonObject newEntry = new JsonObject();
+            newEntry.add("tags", tags);
+            newEntry.add("activities", activities);
+
+            String newEntryString = new Gson().toJson(newEntry);
+
+            PrintWriter writer = new PrintWriter(new FileWriter(jsonEntry));
+            writer.print(newEntryString);
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
