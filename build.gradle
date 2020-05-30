@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+}
+
+group 'Hackathon'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+run{
+    standardInput = System.in
+    mainClassName = 'DiaryServer'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    //Websocket library
+    compile "org.java-websocket:Java-WebSocket:1.4.1"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
+}
+
+
+
