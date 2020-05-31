@@ -1,0 +1,30 @@
+{ '2020-5-29': {moods: ["happy", "excited", "curious", 'powerful'], activities: ["TV", "internet"], grateful:['My Family', 'My Friends', 'My Dog', 'My Health'], worries:['Coronavirus','Sickness', 'Money']},
+
+ '2020-5-30': {moods: ["sad", "livid", 'gleeful'], activities: ["ate", "breakfast", 'lunch'], grateful:['Suitcases'], worries:['Macaroni monster']},
+
+ '2020-5-31': {moods: ["confused", "angry", 'livid'], activities: ["yoga", "meditation"], grateful:['Karl', 'Computer Science'], worries:['World War Three', 'Donald Trump']},
+
+ '2020-5-28': {moods: ['amused', 'calm', 'cheerful', 'powerful'], activities: ['camping', 'surfing'], grateful:['My Pet', 'My Morning Coffee'], worries:['Coronavirus','Sickness', 'Money']},
+
+ '2020-5-27': {moods: ['happy', 'content', 'good', 'mellow'], activities: ['yoga', 'biking'], grateful:['Netflix', 'The Weather'], worries:['Money']},
+
+ '2020-5-26': {moods: ['silly', 'peaceful', 'curious', 'joyful'], activities: ['picnic', 'swim'], grateful:['My Family', 'My Friends'], worries:['Coronavirus','Crime']},
+
+ '2020-5-25': {moods: ['angry', 'annoyed', 'apathetic', 'bad'], activities: ['shopping', 'spa'], grateful:['My Holidays', 'Puppy Videos', 'My Dog', 'My Health'], worries:['Safety','Relationships', 'Rent']},
+
+ '2020-5-24': {moods: ['cranky', 'depressed', 'envious', 'frustrated'], activities: ['sleep in', 'haircut'], grateful:['Suits', 'Fashion'], worries:['Exercise','Chores']},
+
+ '2020-5-23': {moods: ['gloomy', 'guilty', 'grumpy', 'irritated'], activities: ['TV', 'TikTok'], grateful:['Music', 'Animals', 'TikTok'], worries:['Work']},
+
+ '2020-5-22': {moods: ['pessimistic', 'annoyed', 'sad', 'stressed'], activities: ['coffee', 'bar'], grateful:['Money', 'Sports'], worries:['Diet','Job Security']},
+
+ '2020-5-21': {moods: ['anxious', 'rejected', 'indifferent', 'grumpy'], activities: ['cook', 'internet'], grateful:['Tennis', 'Soccer', 'My Dog', 'My Health'], worries:['Old Age','Death', 'Poverty']},
+
+ '2020-5-20': {moods: ['giddy', 'optimistic', 'blissful', 'powerful'], activities: ['shopping', 'TV'], grateful:['Blankets', 'My Friends'], worries:['Fatigue','Appearance']},
+
+ '2020-5-19': {moods: ['excited', 'silly', 'ecstatic', 'mellow'], activities: ['sleep in', 'bar'], grateful:['The Weekend', 'My Friends', 'My Cat'], worries:['Social Status', 'Debt']},
+
+ '2020-5-18': {moods: ['happy', 'excited', 'silly', 'energetic'], activities: ['clean', 'read'], grateful:['My Siblings', 'Reading'], worries:['Coronavirus','Mental Health']},
+
+ '2020-5-17': {moods: ['awesome', 'cool', 'popular', 'funny'], activities: ['read', 'volunteer'], grateful:['My Family', 'Alone Time'], worries:['Cookie Monster']}
+}

@@ -1,0 +1,18 @@
+.Summary-grateful {
+    border: dotted #ffb51d;
+    text-align:left; 
+    margin-top:1em;
+    margin-right:0.5em;
+    margin-left: 0.5em;
+}
+.Summary-grateful table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+.Summary-grateful th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+.Summary-grateful tr:nth-child(even) {background-color: #f2f2f2;}
