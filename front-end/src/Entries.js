@@ -25,7 +25,7 @@ function Entries(props) {
         <hr style={{borderTop: '3px long dash grey', marginLeft:'1em', marginRight:'1em'}}/>
         <div style={{display:'flex', justifyContent:'space-around', flexWrap:'wrap', marginLeft:'1em', marginRight:'1em'}}>
             {props.moods.map(mood=> {
-                return <Tag activated={mood['activated']} activateMood={props.activateMood} tag={mood['mood']}></Tag>
+                return <Tag activated={mood['activated']} index={mood['index']} activateMood={props.activateMood} tag={mood['mood']}></Tag>
             })}
         </div>
         <div style={{display:'flex', justifyContent:'space-between', alignContent:'end-flex'}}>

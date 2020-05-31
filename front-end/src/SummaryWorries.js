@@ -17,7 +17,7 @@ function SummaryWorries(props) {
 
   return (
     <div className='Summary-grateful'>
-        <Typography style={{fontFamily:'Sequel_Demo'}} variant="h5" gutterBottom> WORRIES</Typography>
+        <Typography style={{textAlign:'center',fontFamily:'Sequel_Demo'}} variant="h5" gutterBottom> WORRIES</Typography>
         <table>
           {props.summaryWorries.map(worry=> (<tr> <td>{worry}</td></tr>))}
         </table>

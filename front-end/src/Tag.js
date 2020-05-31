@@ -15,7 +15,7 @@ function Tag(props) {
     fontSize: props.fontSize
 }
   return (
-    <div onClick={()=> props.activateMood(props.tag)} className='Tag' style={style}>
+    <div onClick={()=> props.activateMood(props.tag, props.index)} className='Tag' style={style}>
         {props.tag}
     </div>
   );

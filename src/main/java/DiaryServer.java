@@ -23,9 +23,9 @@ public class DiaryServer extends WebSocketServer {
         DiaryServer connection = new DiaryServer(home);
         connection.start();
         System.out.println("Server Waiting for Connection");
-//        MongoClient mongoClient = MongoClients.create(
-//                "mongodb+srv://js395:p51L$rJ$xCY1AY!vF@oxfdigithon2020-hqnun.azure.mongodb.net/test?retryWrites=true&w=majority");
-//        MongoDatabase database = mongoClient.getDatabase("OxfordDigithon2020");
+        MongoClient mongoClient = MongoClients.create(
+                "mongodb+srv://js395:p51L$rJ$xCY1AY!vF@oxfdigithon2020-hqnun.azure.mongodb.net/test?retryWrites=true&w=majority");
+        MongoDatabase database = mongoClient.getDatabase("OxfordDigithon2020");
 //
 //        MongoCollection<Document> collection = database.getCollection("testCollection");
 //        collection.insertOne(new Document("test3", Arrays.asList())
@@ -71,6 +71,7 @@ public class DiaryServer extends WebSocketServer {
         Document filter;
         switch (type) {
             case "storeMoods":
+                System.out.println("STORING HERE");
                 JsonArray moods = msg.get("moods").getAsJsonArray();
                 String[] moodsList = new Gson().fromJson(moods, String[].class);
                 filter = new Document("user", user)
@@ -157,9 +158,7 @@ public class DiaryServer extends WebSocketServer {
                 }
                 break;
 
-
         }
-
     }
 
     @Override
