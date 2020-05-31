@@ -24,13 +24,9 @@ function Entries(props) {
         {props.summaryMood}
         <hr style={{borderTop: '3px long dash grey', marginLeft:'1em', marginRight:'1em'}}/>
         <div style={{display:'flex', justifyContent:'space-around', flexWrap:'wrap', marginLeft:'1em', marginRight:'1em'}}>
-            <Tag activated={props.moods.includes('happy')} activateMood={props.activateMood} tag='happy'></Tag>
-            <Tag activated={props.moods.includes('sad')} activateMood={props.activateMood} tag='sad'></Tag>
-            <Tag activated={props.moods.includes('excited')} activateMood={props.activateMood} tag='excited'></Tag>
-            <Tag activated={props.moods.includes('anxious')} activateMood={props.activateMood} tag='anxious'></Tag>
-            <Tag activated={props.moods.includes('lonely')} activateMood={props.activateMood}  tag='lonely'></Tag>
-            <Tag activated={props.moods.includes('tired')} activateMood={props.activateMood}  tag='tired'></Tag>
-            <Tag activated={props.moods.includes('add your own')} activateMood={props.activateMood} tag='add your own'></Tag>
+            {props.moods.map(mood=> {
+                return <Tag activated={mood['activated']} activateMood={props.activateMood} tag={mood['mood']}></Tag>
+            })}
         </div>
         <div style={{display:'flex', justifyContent:'space-between', alignContent:'end-flex'}}>
             <Button onClick={props.switchScreensHandler} style={{margin:'1em'}} variant="contained" color="secondary">

@@ -10,7 +10,7 @@ function App() {
     '2020-5-28': {moods: ["Confused", "Angry", 'Livid'], activities: ["Yoga", "Meditation"], grateful:[], worries:[]},
     '2020-5-29': {moods: ["Cranky", "Thirsty", "Indignant", 'Hungry'], activities: ["TV", "Internet"], grateful:[], worries:[]},
     '2020-5-30': {moods: ["Sad", "Livid", 'Gleeful'], activities: ["Ate", "Breakfast", 'Lunch'], grateful:['Suitcases', 'Aaron LEonardododoo', 'Aaron LEonardododoo'], worries:['Macaroni monster']},
-    '2020-5-31': {moods: ['Sad'], activities: ["Yoga", "Meditation"], grateful:[], worries:[]},
+    '2020-5-31': {moods: [], activities: ["Yoga", "Meditation"], grateful:[], worries:[]},
   }
 
   let switchScreenHandler = () => {
@@ -24,36 +24,45 @@ function App() {
 
 
   let activateMood = (mood) => {
-    let newMoods = mockData['2020-5-31']['moods'] = mockData['2020-5-31']['moods']
-    console.log("This was included")  
-    console.log(mockData['2020-5-31']['moods'])
-    if(!mockData['2020-5-31']['moods'].includes(mood)) {
-      newMoods.push(mood);
-      mockData['2020-5-31']['moods'] = newMoods
-      }
-      else {
-        const index = mockData['2020-5-31']['moods'].indexOf(mood)
-        ;
-        newMoods.splice(index, 1);
-        newMoods.push(mood);
-        mockData['2020-5-31']['moods'] = newMoods
-      }
-      setMoodToday(newMoods)
+    let newMoods = moodToday
+    if (newMoods[mood]) {
+      newMoods[mood] = false;
+    }
+    else {
+      newMoods[mood] = true
+    }
 
-      console.log('ACTIVATED MOODS:')
-      console.log(mockData['2020-5-31']['moods'])
+    let moodsList = []
+
+    newMoods.forEach(mood => {
+      if(mood['activated']) moodsList.push(mood['mood'])
+    })
+
+    mockData['2020-5-31']['moods'] = moodsList;
+    console.log('today moods: ' + mockData['2020-5-31']['moods'])
+    
+    if(day==31) {
+      setSummaryGrateful(moodsList)
+    }
   }
   
 
   // States
-  const [day, setDay] = useState(30); 
+  const [day, setDay] = useState(31); 
   const [month, setMonth] = useState(5); 
   const [year, setYear] = useState(2020); 
   const [dayName, setDayName] = useState('Saturday'); 
   const [screen, setScreen] = useState('home'); 
     
-  const [summaryMood, setSummaryMood] = useState(mockData[`2020-5-31`]['moods']); 
-  const [moodToday, setMoodToday] = useState(mockData[`2020-5-31`]['moods']); 
+  const [summaryMood, setSummaryMood] = useState(mockData[`2020-5-31`]['moods'])
+  const [moodToday, setMoodToday] = useState([
+    {mood: 'happy', activated: true},
+    {mood: 'sad', activated: true},
+    {mood: 'anxious', activated: false},
+    {mood: 'lonely', activated: false},
+    {mood: 'add your own', activated: false},
+  ]); 
+
   const [summaryActivity, setSummaryActivity] = useState(mockData[`2020-5-31`]['activities']); 
   const [summaryGrateful, setSummaryGrateful] = useState(mockData[`2020-5-31`]['grateful']); 
   const [summaryWorries, setSummaryWorries] = useState(mockData[`2020-5-31`]['worries']); 
